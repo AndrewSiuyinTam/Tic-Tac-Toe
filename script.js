@@ -21,6 +21,7 @@ const gameBoard = (function()  {
     let gameBoardArr = ['','','',
                         '','','',
                         '','',''];
+                        let winnerMessage = document.getElementById('winner-message');
                         
     const winningCombo = [
         [1,2,3],[1,4,7],[1,5,9],
@@ -37,11 +38,11 @@ const gameBoard = (function()  {
                  elems[i].textContent = "";
         }
         _boardGenerator();
-        }, 5000);
-        
+        }, 3000);
+      
     }
     let _winGame = function(){
-        let winnerMessage = document.getElementById('winner-message');
+        
         for(let index = 0;index<gameBoardArr.length;index++){
             if(gameBoardArr[0] == 'O' && gameBoardArr[1] == 'O' && gameBoardArr[2] == 'O' ){
                 winnerMessage.innerHTML = 'Player 2 Wins! Play Again!'
@@ -98,6 +99,10 @@ const gameBoard = (function()  {
                 winnerMessage.innerHTML = 'Player 1 Wins! Play Again!'
                 _resetGame();
             }
+            if(gameBoardArr[3] == 'O' && gameBoardArr[4] == 'O' && gameBoardArr[5] == 'O' ){
+                winnerMessage.innerHTML = 'Player 2 Wins! Play Again!'
+                _resetGame();
+            }
             if(gameBoardArr[0] == 'O' && gameBoardArr[1] == 'O' && gameBoardArr[2] == 'O' ){
                 winnerMessage.innerHTML = 'Player 2 Wins! Play Again!'
                 _resetGame();
@@ -111,12 +116,12 @@ const gameBoard = (function()  {
                 _resetGame();
             }
             // Tying functionality
-            // if(gameBoardArr[0] != '' && gameBoardArr[1] != '' && gameBoardArr[2] != '' &&
-            // gameBoardArr[3] != '' && gameBoardArr[4] != '' && gameBoardArr[5] != '' &&
-            // gameBoardArr[6] != '' && gameBoardArr[7] != '' && gameBoardArr[8] != ''){
-            //     winnerMessage.innerHTML = 'Its a tie!'
-            //     _resetGame();
-            // }
+            if(gameBoardArr[0] != '' && gameBoardArr[1] != '' && gameBoardArr[2] != '' &&
+            gameBoardArr[3] != '' && gameBoardArr[4] != '' && gameBoardArr[5] != '' &&
+            gameBoardArr[6] != '' && gameBoardArr[7] != '' && gameBoardArr[8] != ''){
+                winnerMessage.innerHTML = 'Its a tie!'
+                _resetGame();
+            }
         }
     };
     const player1 = player('andrew','X');
