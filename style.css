@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@700&family=Fira+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@700&family=Fira+Sans:wght@100&family=The+Nautigal:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+h1{
+    padding-top: 10px;
+    padding-bottom: 40px;
+    text-align: center;
+    font-family: The Nautigal,sans-serif;
+    color: white;
+}
+.container{
+    padding:0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    max-width: 500px;
+    min-height: 500px;
+    border: 5px solid rgb(136, 10, 130);
+}
+.cell{
+    flex: 0 0 33%;
+    height:170px;
+    width: 25px;
+    margin-bottom: 5px;
+    background-color: rgb(194, 27, 216);
+}
+#winner-message{
+    text-align: center;
+    margin-top: 15px;
+    font-family: cursive;
+    color: aliceblue;
+    font-size: 30px;
+}
