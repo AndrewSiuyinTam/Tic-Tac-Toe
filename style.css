@@ -39,3 +39,17 @@ h1{
     color: aliceblue;
     font-size: 30px;
 }
+#x_mark{
+    font-weight: bold;
+    font-size: 150px;
+    text-align: center;
+
+    
+}
+#o_mark{
+    font-weight: bold;
+    font-size: 170px;
+    text-align: center;
+    vertical-align: middle;
+    padding-bottom: 25px;
+}

@@ -31,17 +31,21 @@ const gameBoard = (function()  {
     ];
     let elems = document.getElementsByClassName('cell');
     let _resetGame = function (){
-        gameBoardArr = [];
-        for(let i = 0;i < elems.length ; i++){
-            elems[i].textContent = "";
+        setTimeout(function () {
+            gameBoardArr = [];
+            for(let i = 0;i < elems.length ; i++){
+                 elems[i].textContent = "";
         }
         _boardGenerator();
+        }, 5000);
+        
     }
     let _winGame = function(){
         let winnerMessage = document.getElementById('winner-message');
         for(let index = 0;index<gameBoardArr.length;index++){
             if(gameBoardArr[0] == 'O' && gameBoardArr[1] == 'O' && gameBoardArr[2] == 'O' ){
                 winnerMessage.innerHTML = 'Player 2 Wins! Play Again!'
+                
                 _resetGame();
             }
             if(gameBoardArr[0] == 'X' && gameBoardArr[1] == 'X' && gameBoardArr[2] == 'X' ){
@@ -124,28 +128,35 @@ const gameBoard = (function()  {
     };
     let _boardGenerator = function(){
             let index = 0;
-            let mark = document.createElement('p');
+            let x_mark = document.createElement('p');
+            x_mark.setAttribute('id','x_mark');
+
             for(let i = 0;i < elems.length ; i++){
                 // elems[i].textContent = gameBoardArr[index++];
                 elems[i].addEventListener('click',(e) => {
                     
                     //if current player is 1, then text content is X, if player 2, then 'O'
                     if(playerOneturn == true){
+                        // if(player1.getSymbol() == 'X'){
+                        //     x_mark.textContent = 'X';
+                        // }
+                        
                         elems[i].textContent = player1.getSymbol();
                         playerOneturn = false;
                         selectedCell = e.target.id.charAt(e.target.id.length-1)-1
                         console.log(selectedCell);
                         gameBoardArr[selectedCell] = 'X';
+                        elems[i].setAttribute('id','x_mark');
                         console.log(gameBoardArr);
                         _winGame();
                         
                     }
                     else{
-                        console.log('busted');
                         elems[i].textContent = player2.getSymbol();
                         playerOneturn = true;
                         selectedCell = e.target.id.charAt(e.target.id.length-1)-1
                         gameBoardArr[selectedCell] = 'O';
+                        elems[i].setAttribute('id','x_mark');
                         console.log(gameBoardArr);
                         _winGame();
                     }
